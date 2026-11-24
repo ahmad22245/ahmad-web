@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ahmad Web & Automation — Websites, AI Chatbots & n8n Workflows</title>
+  <meta name="description" content="Ahmad Web & Automation is an independent digital studio founded by Muhammad Ahmad in Bahria Town, Lahore. I design high-converting web experiences and engineer custom AI chatbots and n8n automations.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ahmad Web & Automation — Bespoke Websites & Autonomous AI Systems">
+  <meta property="og:description" content="Websites, AI chatbots, and workflow automation built for how your business works. Independent studio based in Bahria Town, Lahore.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='lg' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236C5CE7'/%3E%3Cstop offset='1' stop-color='%23E056C1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='19' fill='url(%23lg)'/%3E%3Cpath d='M17 47L32 16L47 47' fill='none' stroke='%23fff' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M24.5 37H39.5' stroke='%23fff' stroke-width='5.5' stroke-linecap='round'/%3E%3Cpath d='M50 7L52 12.5L57.5 14.5L52 16.5L50 22L48 16.5L42.5 14.5L48 12.5Z' fill='%23FFB36B'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700;800&family=Pacifico&family=Yellowtail&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Three.js, GSAP, ScrollTrigger, and Lenis CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Ahmad Web & Automation",
+    "founder": {
+      "@type": "Person",
+      "name": "Muhammad Ahmad"
+    },
+    "email": "Ahmadlifa0225@gmail.com",
+    "telephone": "+923094206637",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lahore",
+      "addressRegion": "Punjab",
+      "addressCountry": "PK"
+    },
+    "areaServed": "Worldwide",
+    "description": "Independent studio specializing in website design, WhatsApp AI chatbots, n8n automation, and business process automation."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+  <!-- Luxury Page Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-brand">
+      <div class="brand-symbol"></div>
+      <span>AHMAD <span style="color: #7C6CF0;">WEB & AUTOMATION</span></span>
+    </div>
+    <div class="preloader-spinner"></div>
+    <div class="preloader-counter" id="preloaderCount">0%</div>
+  </div>
+
+  <!-- Interactive Cursor Spotlight (Desktop) -->
+  <div class="cursor-spotlight" id="cursorSpotlight" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       Fixed 6-Scene Light Pastel Background Layer (Scroll-Driven Crossfade)
+       Palette: #EEF0FF to #D9DDFF to #E9C9F4 with subtle ambient blooms & dust
+       ========================================================================== -->
+  <div class="bg-scenes-fixed" id="bgScenesFixed" aria-hidden="true">
+    <div class="bg-scenes-viewport" id="bgScenesViewport">
+      <!-- Scene 1: Hero (Lavender-blue to pink-lilac with soft blurred orbs) -->
+      <div class="bg-scene scene-1-hero is-active" id="scene1" data-scene="1">
+        <div class="scene-1-orb-1"></div>
+        <div class="scene-1-orb-2"></div>
+      </div>
+
+      <!-- Scene 2: Services (Pale blue to white) -->
+      <div class="bg-scene scene-2-services" id="scene2" data-scene="2">
+        <div class="scene-2-bloom"></div>
+      </div>
+
+      <!-- Scene 3: How It Works (Soft peach-pink to lilac) -->
+      <div class="bg-scene scene-3-how" id="scene3" data-scene="3">
+        <div class="scene-3-glow"></div>
+      </div>
+
+      <!-- Scene 4: Work (Light lilac with a faint grid) -->
+      <div class="bg-scene scene-4-work" id="scene4" data-scene="4">
+        <div class="scene-4-grid"></div>
+      </div>
+
+      <!-- Scene 5: Why Me + FAQ (Very light blue-white) -->
+      <div class="bg-scene scene-5-why-faq" id="scene5" data-scene="5">
+        <div class="scene-5-haze"></div>
+      </div>
+
+      <!-- Scene 6: Contact + Footer (Lavender to pink with a soft glow) -->
+      <div class="bg-scene scene-6-contact" id="scene6" data-scene="6">
+        <div class="scene-6-glow-left"></div>
+        <div class="scene-6-glow-right"></div>
+      </div>
+
+      <!-- Living Star Dust Particle Canvas (Soft violet, blue & amber particles) -->
+      <canvas class="bg-dust-canvas" id="bgDustCanvas"></canvas>
+    </div>
+  </div>
+
+  <!-- 3D AI Agency Scroll-Driven Background Layer (Fixed behind content after hero) -->
+  <canvas class="bg3d-canvas" id="bg3dCanvas" aria-hidden="true"></canvas>
+  <div class="bg3d-veil" id="bg3dVeil" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       Site Header / Floating White Glass Capsule Navigation
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <div class="nav-capsule">
+        <!-- Brand Wordmark -->
+        <a href="#home" class="brand-link" id="brandLogoNav" aria-label="Ahmad Web Home">
+          <span class="brand-logo-wrap">
+            <span class="brand-script-wrap">
+              <svg class="brand-star-sparkle" viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="starGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFD08A"/>
+                    <stop offset="100%" stop-color="#FF9A3D"/>
+                  </linearGradient>
+                </defs>
+                <path d="M12 0L14.8 8.8L24 12L14.8 15.2L12 24L9.2 15.2L0 12L9.2 8.8Z" fill="url(#starGradNav)"/>
+              </svg>
+              <span class="brand-script-text">Ahmad</span>
+            </span>
+            <span class="brand-sans-text">Web</span>
+            <span class="brand-reg-mark" aria-hidden="true">R</span>
+          </span>
+        </a>
+
+        <!-- Desktop Navigation: Home, Services, Work, FAQ, Contact -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Main Action Button: Black Pill "Get Demo" -->
+        <div class="nav-actions">
+          <a href="https://wa.me/923094206637?text=Assalam%20o%20Alaikum%20Ahmad,%20I%20would%20like%20to%20get%20a%20demo." target="_blank" rel="noopener noreferrer" class="btn btn-pill-black btn-sm">Get Demo</a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#work" class="mobile-nav-link">Work</a>
+      <a href="#faq" class="mobile-nav-link">FAQ</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+      <a href="https://wa.me/923094206637?text=Assalam%20o%20Alaikum%20Ahmad,%20I%20would%20like%20to%20get%20a%20demo." target="_blank" rel="noopener noreferrer" class="btn btn-pill-black" style="width: 100%; margin-top: 0.75rem;">Get Demo</a>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ==========================================================================
+         Section 1 — Hero
+         ========================================================================== -->
+    <section class="hero-section" id="home" aria-labelledby="heroTitle">
+      <!-- Three.js Interactive 3D Soft Violet/Blue Dots Canvas -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+      <!-- Glossy 3D AI Robot Head in Profile + 3 Floating Glass Chips -->
+      <div class="hero-cyborg-stage" id="heroCyborgStage" aria-hidden="true">
+        <div class="hero-sphere-glow"></div>
+        <img src="assets/hero-robot-light.jpg" alt="Ahmad Web & Automation 3D AI Intelligence" class="hero-cyborg-img" id="heroCyborgImg">
+
+        <!-- 3 Floating Glass Chips -->
+        <div class="hero-float-chip chip-top-right">
+          <span class="chip-dot"></span>
+          <span>WhatsApp Chatbots</span>
+        </div>
+        <div class="hero-float-chip chip-mid-right">
+          <span class="chip-dot"></span>
+          <span>n8n Automation</span>
+        </div>
+        <div class="hero-float-chip chip-bot-left">
+          <span class="chip-dot"></span>
+          <span>Web Design</span>
+        </div>
+      </div>
+
+      <!-- Hero Main Content (Left Positioned) -->
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-giant-title-layer">
+            <h1 class="hero-headline-giant" id="heroTitle">
+              <span class="hero-title-line"><span class="headline-solid">WEBSITES &amp;</span></span>
+              <span class="hero-title-line"><span class="headline-gradient">AI CHATBOTS</span></span>
+              <span class="hero-title-line"><span class="headline-outlined">AUTOMATION</span></span>
+            </h1>
+          </div>
+
+          <p class="hero-lead">
+            Websites, WhatsApp chatbots and automation for your business.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/923094206637?text=Assalam%20o%20Alaikum%20Ahmad,%20I%20would%20like%20to%20get%20a%20demo." target="_blank" rel="noopener noreferrer" class="btn btn-pill-black">
+              <span>Get Demo</span>
+            </a>
+            <a href="#ai-chat" class="btn btn-pill-outline" id="heroAiChatBtn">
+              <span>Talk to my AI</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 2 — Services (4 Cards in Even Grid)
+         Heading max 6 words, no paragraph, 4 cards each with title + max 10 words
+         ========================================================================== -->
+    <section class="section" id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="servicesTitle">
+            SERVICES I BUILD FOR YOU.
+          </h2>
+        </div>
+
+        <div class="services-grid-4">
+          <!-- Card 1 -->
+          <article class="service-card-clean">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3 class="service-clean-title">Website Design</h3>
+            <p class="service-clean-text">
+              Fast, bespoke websites that convert visitors into inquiries.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="service-card-clean">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <h3 class="service-clean-title">WhatsApp AI Chatbots</h3>
+            <p class="service-clean-text">
+              Smart WhatsApp assistants that answer questions and capture leads.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card-clean">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.6 8.6l6.8 6.8"/><circle cx="18" cy="6" r="3"/><path d="M15.4 8.6L8.6 15.4"/><circle cx="6" cy="18" r="3"/></svg>
+            </div>
+            <h3 class="service-clean-title">n8n Automation</h3>
+            <p class="service-clean-text">
+              Webhook workflows connecting your forms, CRMs, and apps.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="service-card-clean">
+            <div class="service-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+            </div>
+            <h3 class="service-clean-title">Business Process Automation</h3>
+            <p class="service-clean-text">
+              Automate data entry and client onboarding reliably.
+            </p>
+          </article>
+        </div>
+      </div>
+    
+    <!-- ==========================================================================
+         Call-To-Action Box: Talk to my AI (Directly after Services)
+         ========================================================================== -->
+    <div class="container cta-ai-container">
+      <div class="cta-ai-box" id="ctaAiBox" role="button" tabindex="0" aria-label="Have a question? Talk to my AI.">
+        <div class="cta-ai-text">
+          <h3 class="cta-ai-title">Have a question? Talk to my AI.</h3>
+          <p class="cta-ai-subtitle">Ask about websites, chatbots, or automation.</p>
+        </div>
+        <a href="#ai-chat" class="btn btn-pill-black btn-sm btn-cta-ai" id="ctaAiBtn">
+          <span>Talk to my AI</span>
+        </a>
+      </div>
+    </div>
+
+</section>
+
+    <!-- ==========================================================================
+         Section 3 — How It Works (4 Steps in Horizontal Row)
+         No intro paragraph, 4 steps each with title + max 8 words
+         ========================================================================== -->
+    <section class="section" id="how-it-works" aria-labelledby="howTitle">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="howTitle">
+            HOW IT WORKS.
+          </h2>
+        </div>
+
+        <div class="how-it-works-row">
+          <!-- Step 1 -->
+          <div class="how-step-card">
+            <span class="how-step-num">01</span>
+            <h3 class="how-step-title">Discuss</h3>
+            <p class="how-step-desc">
+              I review your goals and plan the tools.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="how-step-card">
+            <span class="how-step-num">02</span>
+            <h3 class="how-step-title">Design</h3>
+            <p class="how-step-desc">
+              I create clean prototypes and data flows.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="how-step-card">
+            <span class="how-step-num">03</span>
+            <h3 class="how-step-title">Build</h3>
+            <p class="how-step-desc">
+              I develop the site and test automations.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="how-step-card">
+            <span class="how-step-num">04</span>
+            <h3 class="how-step-title">Launch</h3>
+            <p class="how-step-desc">
+              I deploy live with full handover to you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 4 — Work (3 Cards, Even Grid)
+         No intro paragraph, 3 cards each with title + max 8 words
+         ========================================================================== -->
+    <section class="section" id="work" aria-labelledby="workTitle">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="workTitle">
+            SELECTED WORK.
+          </h2>
+        </div>
+
+        <div class="work-grid">
+          <!-- Project 1 -->
+          <article class="work-card">
+            <div class="browser-frame" aria-hidden="true">
+              <div class="browser-chrome">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url-pill">specialist-clinic.demo</span>
+              </div>
+              <div class="interior-hero-banner">
+                <div class="interior-headline-bar"></div>
+                <div class="interior-sub-bar"></div>
+              </div>
+            </div>
+            <div class="work-details">
+              <span class="sample-project-pill">Sample project</span>
+              <h3 class="work-title">Specialist Clinic Portal</h3>
+              <p class="work-desc">
+                Medical website with instant WhatsApp booking system.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="work-card">
+            <div class="browser-frame" aria-hidden="true">
+              <div class="browser-chrome">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url-pill">catalog-inventory.demo</span>
+              </div>
+              <div class="interior-hero-banner" style="background: linear-gradient(135deg, rgba(124, 108, 240, 0.15), rgba(224, 86, 193, 0.15));">
+                <div class="interior-headline-bar" style="width: 60%;"></div>
+                <div class="interior-sub-bar"></div>
+              </div>
+            </div>
+            <div class="work-details">
+              <span class="sample-project-pill">Sample project</span>
+              <h3 class="work-title">Commerce Catalog &amp; Inquiry</h3>
+              <p class="work-desc">
+                Product showcase with direct WhatsApp ordering flow.
+              </p>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="work-card">
+            <div class="browser-frame" aria-hidden="true">
+              <div class="browser-chrome">
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-dot"></span>
+                <span class="browser-url-pill">operations-hub.demo</span>
+              </div>
+              <div class="interior-hero-banner" style="background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(124, 108, 240, 0.15));">
+                <div class="interior-headline-bar" style="width: 70%;"></div>
+                <div class="interior-sub-bar"></div>
+              </div>
+            </div>
+            <div class="work-details">
+              <span class="sample-project-pill">Sample project</span>
+              <h3 class="work-title">Operations &amp; Dispatch Hub</h3>
+              <p class="work-desc">
+                Client portal synced with Google Sheets automations.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 5 — Why Choose Me
+         Heading + max 2 short sentences, 3 points as short titles ONLY (max 6 words)
+         ========================================================================== -->
+    <section class="section" id="why-me" aria-labelledby="whyTitle">
+      <div class="container">
+        <div class="why-me-box">
+          <h2 class="section-title" id="whyTitle">
+            WHY CHOOSE ME.
+          </h2>
+          <p class="why-me-bio">
+            I am Muhammad Ahmad, an independent builder based in Bahria Town, Lahore. I work directly with you to craft fast websites and dependable automations.
+          </p>
+
+          <div class="why-me-points-grid">
+            <div class="why-point-card">
+              <h3 class="why-point-title">Direct Communication With Me</h3>
+            </div>
+
+            <div class="why-point-card">
+              <h3 class="why-point-title">Tailored Architecture For You</h3>
+            </div>
+
+            <div class="why-point-card">
+              <h3 class="why-point-title">Clear &amp; Documented Systems</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 6 — FAQ (Only 4 Questions, Each Answer Max 15 Words)
+         ========================================================================== -->
+    <section class="section" id="faq" aria-labelledby="faqTitle">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqTitle">
+            FREQUENTLY ASKED QUESTIONS.
+          </h2>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-list">
+            <!-- FAQ 1 -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>How do I get started with you?</span>
+                <span class="faq-icon-wrapper" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                <p>
+                  Send me a message on WhatsApp. I discuss your goals and start immediately.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ 2 -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Can you redesign my existing website?</span>
+                <span class="faq-icon-wrapper" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                <p>
+                  Yes. I rebuild sites for speed, modern design, and automated lead capture.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ 3 -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>How does a WhatsApp AI chatbot work?</span>
+                <span class="faq-icon-wrapper" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                <p>
+                  It connects to the official WhatsApp API to answer questions and capture inquiries instantly.
+                </p>
+              </div>
+            </details>
+
+            <!-- FAQ 4 -->
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>What is n8n and why use it?</span>
+                <span class="faq-icon-wrapper" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                <p>
+                  n8n connects your apps and forms so repetitive daily tasks run automatically.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ==========================================================================
+         Section: Try My AI Assistant (Directly before Contact)
+         Heading max 6 words, description max 12 words
+         ========================================================================== -->
+    <section class="section ai-chat-section" id="ai-chat" aria-labelledby="aiChatTitle">
+      <div class="container">
+        <div class="section-header section-header-center">
+          <h2 class="section-title" id="aiChatTitle">
+            TRY MY AI ASSISTANT.
+          </h2>
+          <p class="section-description">
+            Ask questions about websites, WhatsApp chatbots, or automation.
+          </p>
+        </div>
+
+        <!-- Clean Glass Chat Card (About 520px wide on desktop, full width on mobile) -->
+        <div class="ai-chat-card" id="aiChatCard">
+          <!-- Chat Header Status -->
+          <div class="chat-header">
+            <div class="chat-status-indicator">
+              <span class="chat-status-dot"></span>
+              <span class="chat-status-text">Ahmad's Assistant &bull; Online</span>
+            </div>
+            <span class="chat-model-badge">AI Assistant</span>
+          </div>
+
+          <!-- Quick Question Chips -->
+          <div class="chat-chips" id="chatChips">
+            <button type="button" class="chat-chip" data-msg="What can you automate?">What can you automate?</button>
+            <button type="button" class="chat-chip" data-msg="How does a WhatsApp chatbot work?">How does a WhatsApp chatbot work?</button>
+            <button type="button" class="chat-chip" data-msg="How do I start?">How do I start?</button>
+          </div>
+
+          <!-- Scrollable Messages Window -->
+          <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="AI conversation messages">
+            <!-- Initial Assistant Message -->
+            <div class="chat-msg chat-msg-assistant">
+              <div class="chat-bubble">
+                Hi! I'm Ahmad's AI assistant 😊 Ask me about websites, WhatsApp chatbots, or automation for your business.
+              </div>
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="chat-typing-indicator" id="chatTypingIndicator" aria-hidden="true" style="display: none;">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+          </div>
+
+          <!-- Input & Send Form Bar -->
+          <form class="chat-input-bar" id="chatForm">
+            <input 
+              type="text" 
+              id="chatInput" 
+              class="chat-input" 
+              placeholder="Ask about websites, chatbots, or workflows..." 
+              maxlength="400"
+              autocomplete="off" 
+              required 
+              aria-label="Your question to Ahmad's AI assistant"
+            />
+            <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Direct WhatsApp Link Below Chat -->
+          <div class="chat-footer-action">
+            <a href="https://wa.me/923094206637" target="_blank" rel="noopener noreferrer" class="chat-wa-direct-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              <span>Chat with Ahmad on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ==========================================================================
+         Section 7 — Contact
+         Heading max 6 words + one line of max 12 words
+         Form with only 3 fields: Name, WhatsApp or email, Message
+         ========================================================================== -->
+    <section class="section contact-section" id="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Direct Channels & Studio Information -->
+          <div class="contact-info">
+            <h2 class="section-title" id="contactTitle">
+              LET'S BUILD YOUR NEXT PROJECT.
+            </h2>
+            <p class="section-description">
+              Reach out directly to me on WhatsApp or send a message below.
+            </p>
+
+            <div class="contact-channels">
+              <!-- WhatsApp Channel -->
+              <a href="https://wa.me/923094206637?text=Assalam%20o%20Alaikum%20Ahmad,%20I%20would%20like%20to%20discuss%20a%20project." 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="channel-card">
+                <div class="channel-icon" aria-hidden="true">&#9993;</div>
+                <div class="channel-details">
+                  <span class="channel-label">Direct WhatsApp</span>
+                  <span class="channel-value">+92 309 4206637</span>
+                </div>
+              </a>
+
+              <!-- Email Channel -->
+              <a href="mailto:Ahmadlifa0225@gmail.com" class="channel-card">
+                <div class="channel-icon" aria-hidden="true">&#64;</div>
+                <div class="channel-details">
+                  <span class="channel-label">Direct Email</span>
+                  <span class="channel-value">Ahmadlifa0225@gmail.com</span>
+                </div>
+              </a>
+
+              <!-- Studio Location -->
+              <div class="channel-card" style="pointer-events: none;">
+                <div class="channel-icon" aria-hidden="true">&#9678;</div>
+                <div class="channel-details">
+                  <span class="channel-label">Studio Base</span>
+                  <span class="channel-value">Bahria Town, Lahore, Pakistan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clean Short Inquiry Form (Only 3 Fields) -->
+          <div class="contact-form-card">
+            <form id="projectInquiryForm">
+              <div class="form-group">
+                <label for="inquiryName" class="form-label">Your Name</label>
+                <input type="text" id="inquiryName" class="form-input" required autocomplete="name" placeholder="e.g. Tariq Khan">
+              </div>
+
+              <div class="form-group">
+                <label for="inquiryContact" class="form-label">WhatsApp or Email</label>
+                <input type="text" id="inquiryContact" class="form-input" required placeholder="+92 300 1234567 or email@domain.com">
+              </div>
+
+              <div class="form-group">
+                <label for="inquiryMessage" class="form-label">Message</label>
+                <textarea id="inquiryMessage" class="form-textarea" placeholder="Tell me briefly about your goals or desired timeline..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-pill-black" style="width: 100%;">
+                <span>Get Demo</span>
+              </button>
+
+              <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Section 8 — Slim Footer
+         One short line
+         ========================================================================== -->
+    <footer class="site-footer-slim" role="contentinfo">
+      <div class="container">
+        <div class="footer-slim-inner">
+          <div class="footer-slim-brand">
+            <a href="#home" class="brand-link brand-logo-footer" id="brandLogoFooter" aria-label="Ahmad Web Home">
+              <span class="brand-logo-wrap">
+                <span class="brand-script-wrap">
+                  <svg class="brand-star-sparkle" viewBox="0 0 24 24" aria-hidden="true">
+                    <defs>
+                      <linearGradient id="starGradFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFD08A"/>
+                        <stop offset="100%" stop-color="#FF9A3D"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M12 0L14.8 8.8L24 12L14.8 15.2L12 24L9.2 15.2L0 12L9.2 8.8Z" fill="url(#starGradFoot)"/>
+                  </svg>
+                  <span class="brand-script-text">Ahmad</span>
+                </span>
+                <span class="brand-sans-text">Web</span>
+                <span class="brand-reg-mark" aria-hidden="true">R</span>
+              </span>
+            </a>
+            <span class="footer-copy-text">&bull; Muhammad Ahmad &bull; Bahria Town, Lahore.</span>
+          </div>
+          <div class="footer-slim-nav">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <button id="backToTopBtn" class="footer-slim-top" aria-label="Scroll back to top">
+              <span>Back to top &uarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Mobile Floating WhatsApp Button -->
+  <a href="https://wa.me/923094206637?text=Assalam%20o%20Alaikum%20Ahmad,%20I%20would%20like%20to%20get%20a%20demo." class="floating-wa-btn" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- External Scripts -->
+  <script src="script.js"></script>
+  <script src="bg3d.js"></script>
+</body>
+</html>

@@ -2,9 +2,13 @@
 .env
 .env.local
 .env.*.local
+.dev.vars
 
 # Dependencies
 node_modules/
+
+# Netlify local cache & artifacts
+.netlify/
 
 # Logs
 *.log
